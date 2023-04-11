@@ -2,28 +2,39 @@
 
 namespace App\Repositories\Admin;
 
+use App\Models\CategoryProduct;
 use App\Repositories\Interface\CategoryInterface;
 
 class CategoryAdmin implements CategoryInterface
 {
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return CategoryProduct::all();
     }
+
     public function getById($id)
     {
-        // TODO: Implement getById() method.
+        return CategoryProduct::find($id);
     }
+
     public function createProduct(array $data)
     {
-        // TODO: Implement createProduct() method.
+        $category = new CategoryProduct();
+        $category->cate_product = $data['cate_product'];
+        $category->slug = $data['slug'];
+        $category->save();
     }
+
     public function deleteProduct($id)
     {
-        // TODO: Implement deleteProduct() method.
+        return CategoryProduct::find($id)->delete();
     }
+
     public function updateProduct(array $data, $id)
     {
-        // TODO: Implement updateProduct() method.
+        return CategoryProduct::find($id)->update([
+            'cate_product' => $data['cate_product'],
+            'slug' => $data['slug']
+        ]);
     }
 }

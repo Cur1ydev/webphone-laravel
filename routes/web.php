@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ChangeStatusController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductAdminController;
 use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\Admin\CategoryAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,9 @@ Route::middleware('adminLogin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/editProduct/{id}',[ProductAdminController::class,'getByid'])->name('editProduct');
     Route::post('/editProduct/{id}',[ProductAdminController::class,'updateProduct'])->name('editProductPost');
     Route::get('/deleteProduct/{id}',[ProductAdminController::class,'deleteProduct'])->name('deleteProduct');
+    Route::get('/category',[CategoryAdminController::class,'getAllCategory'])->name('category');
+    Route::get('/addCategory',[CategoryAdminController::class,'addCategory'])->name('addCategory');
+    Route::post('/addCategory',[CategoryAdminController::class,'addCategoryPost'])->name('addCategoryPost');
 });
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
