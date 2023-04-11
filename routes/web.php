@@ -26,6 +26,11 @@ Route::middleware('adminLogin')->prefix('/admin')->name('admin.')->group(functio
         return redirect()->route('client.login');
     })->name('logout');
     Route::get('/productAdmin',[ProductAdminController::class,'getAllProduct'])->name('productAdmin');
+    Route::get('/addProduct',[ProductAdminController::class,'addProduct'])->name('addProduct');
+    Route::post('/addProduct',[ProductAdminController::class,'addProductPost'])->name('addProductPost');
+    Route::get('/editProduct/{id}',[ProductAdminController::class,'getByid'])->name('editProduct');
+    Route::post('/editProduct/{id}',[ProductAdminController::class,'updateProduct'])->name('editProductPost');
+    Route::get('/deleteProduct/{id}',[ProductAdminController::class,'deleteProduct'])->name('deleteProduct');
 });
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');

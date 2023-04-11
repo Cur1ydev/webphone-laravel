@@ -19,7 +19,9 @@ class Cart extends Model
     protected $guarded=[
         'id'
     ];
-    public function StatusOrder(){
-        return $this->hasMany('App\Models\StatusOrder','id_status');
+    public function statusorder()
+    {
+        return $this->belongsTo(StatusOrder::class,'id');
     }
+
 }

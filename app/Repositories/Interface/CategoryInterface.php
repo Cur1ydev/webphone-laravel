@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interface;
 
-interface ProductInterface
+interface CategoryInterface
 {
     public function getAll();
 
@@ -13,6 +13,4 @@ interface ProductInterface
     public function updateProduct(array $data,$id);
 
     public function deleteProduct($id);
-    public function getAllCategory();
-
 }

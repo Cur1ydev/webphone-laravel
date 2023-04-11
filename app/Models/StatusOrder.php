@@ -10,7 +10,7 @@ class StatusOrder extends Model
     use HasFactory;
     protected $table='status_order';
     protected $fillable=['status'];
-    public function Cart(){
-        return $this->belongsTo('App\Models\Cart','id_status');
+    public function cart(){
+        return $this->hasMany(Cart::class,'id_status');
     }
 }

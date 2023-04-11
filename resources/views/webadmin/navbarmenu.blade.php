@@ -46,7 +46,7 @@
                             </li>
 
                             <li>
-                                <a href="add-new-product.html">Add New Products</a>
+                                <a href="{{route('admin.addProduct')}}">Add New Products</a>
                             </li>
                         </ul>
                     </li>

@@ -49,27 +49,18 @@
                                                 <td>
                                                     <ul>
                                                         <li>
-                                                            <a href="abc.html">
-                                                                <i class="ri-eye-line"></i>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="javascript:void(0)">
+                                                            <a href="{{route('admin.editProduct',['id'=>$value->id])}}">
                                                                 <i class="ri-pencil-line"></i>
                                                             </a>
                                                         </li>
 
                                                         <li>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                               data-bs-target="#exampleModalToggle">
+                                                            <a href="{{route('admin.deleteProduct',['id'=>$value->id])}}">
                                                                 <i class="ri-delete-bin-line"></i>
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </td>
-
-
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -81,6 +72,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Container-fluid Ends-->
 
         <!-- footer start-->
