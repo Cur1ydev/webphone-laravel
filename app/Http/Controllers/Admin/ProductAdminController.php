@@ -133,9 +133,7 @@ class ProductAdminController extends Controller
 
     public function deleteProduct(Request $request)
     {
-        $deleteProduct = $this->productAdmin->deleteProduct($request->id);
-        if ($deleteProduct) {
-            return redirect()->route('admin.productAdmin');
-        }
+        $this->productAdmin->deleteProduct($request->id);
+        return redirect()->route('admin.productAdmin');
     }
 }
