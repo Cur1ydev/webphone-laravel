@@ -13,4 +13,5 @@ interface CategoryInterface
     public function updateProduct(array $data,$id);
 
     public function deleteProduct($id);
+    public function checkDelete($id);
 }

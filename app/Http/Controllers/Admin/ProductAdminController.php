@@ -19,13 +19,13 @@ class ProductAdminController extends Controller
     public function getAllProduct()
     {
         $allProduct = $this->productAdmin->getAll();
-        return view('admin.product', compact('allProduct'));
+        return view('admin.product.product', compact('allProduct'));
     }
 
     public function addProduct(Request $request)
     {
         $allCategory = $this->productAdmin->getAllCategory();
-        return view('admin.addproduct', compact('allCategory'));
+        return view('admin.product.addproduct', compact('allCategory'));
     }
 
     public function addProductPost(Request $request)
@@ -80,7 +80,7 @@ class ProductAdminController extends Controller
     {
         $getProduct = $this->productAdmin->getById($request->id);
         $allCategory = $this->productAdmin->getAllCategory();
-        return view('admin.editProduct', compact('getProduct', 'allCategory'));
+        return view('admin.product.editProduct', compact('getProduct', 'allCategory'));
     }
 
     public function updateProduct(Request $request)

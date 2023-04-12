@@ -35,6 +35,9 @@ Route::middleware('adminLogin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/category',[CategoryAdminController::class,'getAllCategory'])->name('category');
     Route::get('/addCategory',[CategoryAdminController::class,'addCategory'])->name('addCategory');
     Route::post('/addCategory',[CategoryAdminController::class,'addCategoryPost'])->name('addCategoryPost');
+    Route::get('/editCategory/{id}',[CategoryAdminController::class,'getById'])->name('editCategory');
+    Route::post('/editCategory/{id}',[CategoryAdminController::class,'updateCategory'])->name('editCategoryPost');
+    Route::get('/deleteCategory/{id}',[CategoryAdminController::class,'deleteCategory'])->name('deleteCategory');
 });
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
