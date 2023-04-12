@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\Admin\CartAdmin;
 use App\Repositories\Admin\CategoryAdmin;
 use App\Repositories\Admin\ChangeStatus;
 use App\Repositories\Admin\Dashboard;
 use App\Repositories\Admin\ProductAdmin;
+use App\Repositories\Interface\CartInterface;
 use App\Repositories\Interface\CategoryInterface;
 use App\Repositories\Interface\ChangeStatusInterface;
 use App\Repositories\Interface\DashboardInterface;
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DashboardInterface::class,Dashboard::class);
         $this->app->bind(ProductInterface::class,ProductAdmin::class);
         $this->app->bind(CategoryInterface::class,CategoryAdmin::class);
+        $this->app->bind(CartInterface::class,CartAdmin::class);
     }
 
     /**

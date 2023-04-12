@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductAdminController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Admin\CategoryAdminController;
+use App\Http\Controllers\Admin\CartAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::middleware('adminLogin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/editCategory/{id}',[CategoryAdminController::class,'getById'])->name('editCategory');
     Route::post('/editCategory/{id}',[CategoryAdminController::class,'updateCategory'])->name('editCategoryPost');
     Route::get('/deleteCategory/{id}',[CategoryAdminController::class,'deleteCategory'])->name('deleteCategory');
+    Route::get('/cart',[CartAdminController::class,'getAll'])->name('cart');
+    Route::get('/deleteCart/{id}',[CartAdminController::class,'deleteCart'])->name('deleteCart');
 });
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
