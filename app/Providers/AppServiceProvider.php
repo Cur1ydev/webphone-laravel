@@ -7,11 +7,13 @@ use App\Repositories\Admin\CategoryAdmin;
 use App\Repositories\Admin\ChangeStatus;
 use App\Repositories\Admin\Dashboard;
 use App\Repositories\Admin\ProductAdmin;
+use App\Repositories\Admin\User;
 use App\Repositories\Interface\CartInterface;
 use App\Repositories\Interface\CategoryInterface;
 use App\Repositories\Interface\ChangeStatusInterface;
 use App\Repositories\Interface\DashboardInterface;
 use App\Repositories\Interface\ProductInterface;
+use App\Repositories\Interface\UserInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProductInterface::class,ProductAdmin::class);
         $this->app->bind(CategoryInterface::class,CategoryAdmin::class);
         $this->app->bind(CartInterface::class,CartAdmin::class);
+        $this->app->bind(UserInterface::class,User::class);
     }
 
     /**

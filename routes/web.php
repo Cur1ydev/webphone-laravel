@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductAdminController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\Admin\CartAdminController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,12 @@ Route::middleware('adminLogin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/deleteCategory/{id}',[CategoryAdminController::class,'deleteCategory'])->name('deleteCategory');
     Route::get('/cart',[CartAdminController::class,'getAll'])->name('cart');
     Route::get('/deleteCart/{id}',[CartAdminController::class,'deleteCart'])->name('deleteCart');
+    Route::get('/user',[UserController::class,'getAll'])->name('user');
+    Route::get('/addUser',[UserController::class,'addUser'])->name('addUser');
+    Route::post('/addUser',[UserController::class,'addUserPost'])->name('addUserPost');
+    Route::get('/editUser/{id}',[UserController::class,'getByid'])->name('editUser');
+    Route::post('/editUser/{id}',[UserController::class,'updateUser'])->name('editUserPost');
+    Route::get('/deleteUser/{id}',[UserController::class,'deleteUser'])->name('deleteUser');
 });
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('home');
